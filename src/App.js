@@ -1,24 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState,useEffect} from 'react';
+import ListItem from "./components/list-item";
 import './App.css';
 
 function App() {
+  const [busItem, setBusItem ] = useState({})
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container-fluid">
+      <div className="col-lg-3">
+
+      </div>
+      <div className="col-lg-9">
+        <img src={busItem.bus_header_image}></img>
+        <ListItem setBusItem ={setBusItem}/>
+      </div>
     </div>
   );
 }

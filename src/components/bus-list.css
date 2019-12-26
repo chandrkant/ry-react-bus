@@ -1,0 +1,236 @@
+#dxt-bus-list-comp .bus-list-card {
+    box-shadow: 0 2px 5px 2px rgba(0,0,0,0.1);
+    background-color: #fff;
+    padding: 15px 15px 0 15px;
+    border-radius: 6px;
+}
+#dxt-bus-list-comp .bus-list-card ul li.bus-list-cont_list.list-col1 h2 {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+    width: 278px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.marg-top-25 {
+    margin-top: 25px;
+}
+.no-pad {
+    padding: 0;
+}
+#dxt-bus-list-comp .bus-list-card .bus-type-block {
+    position: absolute;
+    top: -8px;
+    left: -4px;
+}
+.pad-top-5 {
+    padding-top: 5px;
+}
+.pad-bot-5 {
+    padding-bottom: 5px;
+}
+#dxt-bus-list-comp li.bus-list-cont_list.list-col1 {
+    width: 34%;
+    border-right: 1px solid #d5d6d9;
+}
+#dxt-bus-list-comp .bus-list-cont_list.seat-list span {
+    display: inline-block;
+    width: 30.333333%;
+    background-color: #EEEEEE;
+    border-radius: 3px;
+    border: 1px solid #E8E7E7;
+    margin-right: 6px;
+    padding: 3px 5px;
+    text-align: center;
+    font-size: 12px;
+    color: #000;
+}#dxt-bus-list-comp 
+li.bus-list-cont_list.list-col2 {
+    width: 13%;
+    background: url(https://images.railyatri.in/ry_images_prod/direction-1562067443.png) 100% 0 repeat-y;
+    background-size: contain;
+    position: relative;
+    height: 60px;
+}
+.black-txt {
+    color: #000;
+}
+#dxt-bus-list-comp .bus-list-card ul li.bus-list-cont_list.list-col2 p:nth-child(1) {
+    position: absolute;
+    top: 0;
+    right: 27%;
+}
+.no-marg {
+    margin: 0;
+}
+#dxt-bus-list-comp .bus-list-card ul li.bus-list-cont_list.list-col2 p:nth-child(2) {
+    position: absolute;
+    top: 25px;
+    right: 27%;
+}
+.l-grey {
+    color: #757575;
+}
+.fs9 {
+    font-size: 9px;
+}
+#dxt-bus-list-comp .bus-list-card ul li.bus-list-cont_list.list-col2 p:nth-child(3) {
+    position: absolute;
+    right: 27%;
+    bottom: -12px;
+}
+p {
+    margin: 0 0 10px;
+}
+#dxt-bus-list-comp .bus-list-card ul li.bus-list-cont_list.list-col4 {
+    width: 34%;
+    padding-left: 15px;
+}
+#dxt-bus-list-comp .bus-list-card ul li.bus-list-cont_list.list-col4 p:nth-child(1) {
+    margin-bottom: 0px;
+    width: 245px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.d-grey {
+    color: #363636;
+}
+.fs10 {
+    font-size: 10px;
+}
+#dxt-bus-list-comp .bus-list-card ul li.bus-list-cont_list.list-col5 {
+    width: 19%;
+    border-left: 1px solid #d5d6d9;
+}
+.bus-list-card ul li.bus-list-cont_list {
+    list-style: none;
+    display: inline-block;
+    float: left;
+}
+.text-right {
+    text-align: right;
+}
+#dxt-bus-list-comp ul li.bus-list-cont_list {
+    list-style: none;
+    /* display: inline-block; */
+    float: left;
+}
+#dxt-bus-list-comp ul li.bus-list-cont_list.list-col5 .bus-orgprice span.strikethrough {
+    position: relative;
+    display: inline-block;
+    font-size: 12px;
+    margin-right: 5px;
+}
+#dxt-bus-list-comp .bus-list-card ul li.bus-list-cont_list.list-col5 .bus-orgprice span.strikethrough:before {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 45%;
+    right: 0;
+    border-top: 1px solid #ff4b4b;
+    -webkit-transform: rotate(10deg);
+    -moz-transform: rotate(10deg);
+    -ms-transform: rotate(10deg);
+    -o-transform: rotate(10deg);
+    transform: rotate(10deg);
+}
+#dxt-bus-list-comp .bus-list-card ul li.bus-list-cont_list.list-col4 p:nth-child(1) {
+    margin-bottom: 0px;
+    width: 245px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#dxt-bus-list-comp .bus-list-cont_tab {
+    background-color: #EDF3F4;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+#dxt-bus-list-comp .bus-list-cont_tab span.ry-scr {
+    padding-top: 10px;
+    padding-left: 10px;
+    display: inline-block;
+}
+#dxt-bus-list-comp .bus-list-cont_tab span.ry-scr span:nth-child(1) {
+    background-color: #01B901;
+    color: #fff;
+    border-radius: 3px;
+    padding: 1px 5px;
+}
+#dxt-bus-list-comp .bus-list-cont_tab span.ry-scr span:nth-child(2) {
+    margin-left: 5px;
+    color: #757575;
+}
+#dxt-bus-list-comp .nav-tabs>li {
+    float: left;
+    margin-bottom: -1px;
+}
+#dxt-bus-list-comp .nav>li {
+    position: relative;
+    display: block;
+}
+#dxt-bus-list-comp .bus-list-cont_tab .nav-tabs>li>a.bus-seats {
+    color: #fff;
+    background-color: #6AA000;
+    border-color: #6AA000;
+    transition: 0.3s;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 0;
+    padding: 10px 15px;
+    margin: 0;
+}
+#dxt-bus-list-comp .bus-list-cont_tab span.ry-scr {
+    padding-top: 10px;
+    padding-left: 10px;
+    display: inline-block;
+}
+.bus-list-cont_tab .nav-tabs {
+    border: 0;
+    float: right;
+}
+#dxt-bus-list-comp .nav-tabs {
+    border: 0;
+    float: right;
+}
+#dxt-bus-list-comp .bus-list-cont_tab .nav-tabs>li:nth-child(1)>a,
+.bus-list-cont_tab .nav-tabs>li:nth-child(2)>a,
+.bus-list-cont_tab .nav-tabs>li:nth-child(3)>a{
+    color: #484848;
+}
+#dxt-bus-list-comp .bus-list-cont_tab .nav-tabs>li.active>a {
+    border-width: 0;
+    background-color: transparent;
+}
+#dxt-bus-list-comp .bus-list-cont_tab .nav-tabs>li>a {
+    border: 0;
+    margin: 0;
+    margin-top: 10px;
+    padding: 0 15px;
+}
+.bgclr-wht, .bgclr-white {
+    background-color: #fff;
+}#dxt-bus-list-comp .bus-list-cont_tab .tab-content {
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    min-height: 0;
+}
+#dxt-bus-list-comp .bus-list-cont_tab .tab-content .amen-list-scrl {
+    max-height: 280px;
+    overflow-y: auto;
+    padding-bottom: 15px;
+}
+#dxt-bus-list-comp .bus-list-cont_tab .tab-content .amen-list {
+    border-bottom: 1px solid #d5d6d9;
+    padding: 10px 15px;
+}
+.no-padlt {
+    padding-left: 0;
+}
+#dxt-bus-list-comp .bus-list-cont_tab .tab-content .amen-list {
+    border-bottom: 1px solid #d5d6d9;
+    padding: 10px 15px;
+}
