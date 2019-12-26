@@ -1,7 +1,9 @@
 import React,{useState} from 'react'
 import Amenities from './Amenities'
+import SeatLayout from './SeatLayout'
 export default function BusListContTab(props) {
-    const [amenity, setAmenity ] = useState([])
+    const [amenity, setAmenity ] = useState([]);
+    const [seat, setSeat ] = useState('')
 
     const getAmenities =async(id,pid) =>{
         const amenData = await fetch(`https://food1.railyatri.in/get-bus-amenities.json?trip_id=${id}&provider_id=${pid}`)
@@ -9,7 +11,13 @@ export default function BusListContTab(props) {
         setAmenity(jsonAmenData.amenities);         
 
     }
-
+    const getSeatLayout = async(id,op_id) => {
+        const setLayout = await fetch(`http://localhost:3001/bus-seat-layout?trip_id=${id}&no_of_passengers=1&operator_id=${op_id}&v_code=176&device_type_id=6&provider_id=5&is_new_reduce_basefare=1&user_id=-1577091648`)
+        await setLayout.text().then(function (text) {
+            setSeat(text);
+        })
+         
+    }
     return (
         <div className="col-xs-12 no-pad bus-list-cont_tab">
             {props.item.rating && <span className="ry-scr font-xs"><span> {props.item.rating} </span><span>RY Score</span></span> }
@@ -24,7 +32,7 @@ export default function BusListContTab(props) {
                     <a href={`#cnxl-bus-${props.item.id}`}  role="tab" data-toggle="tab">Cancellation Policy</a>
                 </li>
                 <li role="presentation">
-                    <a href={`#seat-selct-${props.item.id}`}  role="tab" data-toggle="tab" className="bus-seats">Select Seats</a>
+                    <a href={`#seat-selct-${props.item.id}`}  role="tab" data-toggle="tab" className="bus-seats" onClick={()=>getSeatLayout(props.item.id,props.item.operator_id)}>Select Seats</a>
                 </li>
             </ul>
             <div className="clearfix"></div>
@@ -41,7 +49,7 @@ export default function BusListContTab(props) {
 
                 </div>
                 <div role="tabpanel" id={`seat-selct-${props.item.id}`} className="tab-pane amen-selct">
-                    adasdasd
+                    <SeatLayout seat = {seat}/>
 
                 </div>
 
