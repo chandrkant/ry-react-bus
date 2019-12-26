@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import Amenities from './Amenities'
-import SeatLayout from './SeatLayout'
+import $ from 'jquery'
 export default function BusListContTab(props) {
     const [amenity, setAmenity ] = useState([]);
     const [seat, setSeat ] = useState('')
@@ -12,9 +12,9 @@ export default function BusListContTab(props) {
 
     }
     const getSeatLayout = async(id,op_id) => {
-        const setLayout = await fetch(`http://localhost:3001/bus-seat-layout?trip_id=${id}&no_of_passengers=1&operator_id=${op_id}&v_code=176&device_type_id=6&provider_id=5&is_new_reduce_basefare=1&user_id=-1577091648`)
+        const setLayout = await fetch(`https://www.railyatri.in/bus-seat-layout?trip_id=${id}&no_of_passengers=1&operator_id=${op_id}&v_code=176&device_type_id=6&provider_id=5&is_new_reduce_basefare=1&user_id=-1577091648`)
         await setLayout.text().then(function (text) {
-            setSeat(text);
+            $(`#dext-seat-layout-${id}`).html(text);
         })
          
     }
@@ -49,8 +49,12 @@ export default function BusListContTab(props) {
 
                 </div>
                 <div role="tabpanel" id={`seat-selct-${props.item.id}`} className="tab-pane amen-selct">
-                    <SeatLayout seat = {seat}/>
-
+                   
+                    <div className="col-xs-12 no-pad pad-bot-15">
+                        <div id={`dext-seat-layout-${props.item.id}`} className="col-xs-7 no-padlt bus-seat-block">
+                           
+                        </div>
+                    </div>
                 </div>
 
             </div>
