@@ -1,60 +1,64 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import Amenities from './Amenities'
-import $ from 'jquery'
-export default function BusListContTab(props) {
-    const [amenity, setAmenity ] = useState([]);
-    const [seat, setSeat ] = useState('')
+import SeatLayout from './SeatLayout'
 
-    const getAmenities =async(id,pid) =>{
+export default function BusListContTab(props) {
+    const [amenity, setAmenity] = useState([]);
+    const [seatData, setSeatData] = useState({});
+    const getAmenities = async (id, pid) => {
         const amenData = await fetch(`https://food1.railyatri.in/get-bus-amenities.json?trip_id=${id}&provider_id=${pid}`)
         const jsonAmenData = await amenData.json();
-        setAmenity(jsonAmenData.amenities);         
+        setAmenity(jsonAmenData.amenities);
 
     }
-    const getSeatLayout = async(id,op_id) => {
-        const setLayout = await fetch(`https://www.railyatri.in/bus-seat-layout?trip_id=${id}&no_of_passengers=1&operator_id=${op_id}&v_code=176&device_type_id=6&provider_id=5&is_new_reduce_basefare=1&user_id=-1577091648`)
-        await setLayout.text().then(function (text) {
-            $(`#dext-seat-layout-${id}`).html(text);
+    const getSeatLayout = async (id, op_id) => {
+        const setLayout = await fetch(`https://food1.railyatri.in/redbus/get-trip-details?trip_id=${id}&no_of_passengers=1&operator_id=${op_id}&v_code=176&device_type_id=4&provider_id=5&is_new_reduce_basefare=1&request_src=mweb&user_id=598`)
+        await setLayout.json().then(function (data) {
+            // $(`#dext-seat-layout-${id}`).html(text);
+            debugger
+            let lower = props.seats.filter(item => item.zIndex==="0")
+            let upper = props.seats.filter(item => item.zIndex==="1")
+            // setSeatData(data.trip_details);
         })
-         
+
     }
+    const getMaxRow = data=> data.map(item => item.row).sort()
+    const uniqueArray = array=>[[...new Set(array)]]
+    
     return (
         <div className="col-xs-12 no-pad bus-list-cont_tab">
-            {props.item.rating && <span className="ry-scr font-xs"><span> {props.item.rating} </span><span>RY Score</span></span> }
+            {props.item.rating && <span className="ry-scr font-xs"><span> {props.item.rating} </span><span>RY Score</span></span>}
             <ul role="tablist" className="nav nav-tabs">
                 <li role="presentation">
-                    <a href={`#bus-ament-${props.item.id}`}  role="tab" data-toggle="tab" onClick={() => getAmenities(props.item.id,props.item.provider_id)}>Amenities</a>
+                    <a href={`#bus-ament-${props.item.id}`} role="tab" data-toggle="tab" onClick={() => getAmenities(props.item.id, props.item.provider_id)}>Amenities</a>
                 </li>
                 <li role="presentation">
-                    <a href={`#loc-point-${props.item.id}`}  role="tab" data-toggle="tab">Boarding/Dropping points</a>
+                    <a href={`#loc-point-${props.item.id}`} role="tab" data-toggle="tab">Boarding/Dropping points</a>
                 </li>
                 <li role="presentation">
-                    <a href={`#cnxl-bus-${props.item.id}`}  role="tab" data-toggle="tab">Cancellation Policy</a>
+                    <a href={`#cnxl-bus-${props.item.id}`} role="tab" data-toggle="tab">Cancellation Policy</a>
                 </li>
                 <li role="presentation">
-                    <a href={`#seat-selct-${props.item.id}`}  role="tab" data-toggle="tab" className="bus-seats" onClick={()=>getSeatLayout(props.item.id,props.item.operator_id)}>Select Seats</a>
+                    <a href={`#seat-selct-${props.item.id}`} role="tab" data-toggle="tab" className="bus-seats" onClick={() => getSeatLayout(props.item.id, props.item.operator_id)}>Select Seats</a>
                 </li>
             </ul>
             <div className="clearfix"></div>
             <div className="col-xs-12 bgclr-wht tab-content">
                 <div role="tabpanel" id={`bus-ament-${props.item.id}`} className="tab-pane amen-selct">
-                    <Amenities amenity ={amenity} tripId = {props.item.id}/>
+                    <Amenities amenity={amenity} tripId={props.item.id} />
                 </div>
                 <div role="tabpanel" id={`loc-point-${props.item.id}`} className="tab-pane amen-selct">
                     sdfsdfsdf
 
                 </div>
+
                 <div role="tabpanel" id={`cnxl-bus-${props.item.id}`} className="tab-pane amen-selct">
                     dsadsad
 
                 </div>
+
                 <div role="tabpanel" id={`seat-selct-${props.item.id}`} className="tab-pane amen-selct">
-                   
-                    <div className="col-xs-12 no-pad pad-bot-15">
-                        <div id={`dext-seat-layout-${props.item.id}`} className="col-xs-7 no-padlt bus-seat-block">
-                           
-                        </div>
-                    </div>
+                    <SeatLayout seatData = {seatData} />
                 </div>
 
             </div>

@@ -107,7 +107,7 @@ p {
 .bus-list-card ul li.bus-list-cont_list {
     list-style: none;
     display: inline-block;
-    float: left;
+    /* float: left; */
 }
 .text-right {
     text-align: right;
@@ -233,4 +233,23 @@ p {
 #dxt-bus-list-comp .bus-list-cont_tab .tab-content .amen-list {
     border-bottom: 1px solid #d5d6d9;
     padding: 10px 15px;
+}
+#dxt-bus-list-comp .bus-list-cont_tab .nav-tabs>li.active>a.bus-seats:hover,
+#dxt-bus-list-comp .bus-list-cont_tab .nav-tabs>li.active>a.bus-seats {
+    background-color: #86BC24;
+    border-color: #86BC24;
+    color: #fff;
+    outline: 0;
+}
+.bus-list-cont_tab .tab-content>.tab-pane .seat-cls {
+    padding: 1px 10px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border: 1px solid #bbb;
+    background-color: #ffff;
+    border-radius: 25px;
+    font-size: 12px;
+    cursor: pointer;
+    z-index: 9;
 }
