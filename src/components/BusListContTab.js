@@ -23,7 +23,10 @@ export default function BusListContTab(props) {
 
     }
     const getMaxRow = data=> data.map(item => item.row).sort()
-    const uniqueArray = array=>[[...new Set(array)]]
+    const uniqueArray = array=>[...new Set(array)]
+    const fillMissRowOrCol = (array)=> {
+        // array.map(item,idx)
+    }
     
     return (
         <div className="col-xs-12 no-pad bus-list-cont_tab">

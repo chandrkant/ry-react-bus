@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from 'react';
+import React, {useState} from 'react';
 import ListItem from "./components/list-item";
 import './App.css';
 
@@ -10,7 +10,7 @@ function App() {
 
       </div>
       <div className="col-lg-9">
-        <img src={busItem.bus_header_image}></img>
+        <img src={busItem.bus_header_image} alt=""></img>
         <ListItem setBusItem ={setBusItem}/>
       </div>
     </div>
