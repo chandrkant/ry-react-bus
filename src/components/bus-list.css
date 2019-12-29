@@ -253,3 +253,8 @@ p {
     cursor: pointer;
     z-index: 9;
 }
+.bus-list-cont_tab .tab-content .bus-seat-block {
+    margin-top: 50px;
+    border-radius: 6px;
+    padding: 0 15px 15px 0;
+}
