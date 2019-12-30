@@ -89,42 +89,43 @@ const SeatLayout = forwardRef((props, ref) => {
             }
 
         })
-
-        console.log('====================================');
-        console.log(row);
-        console.log('====================================');
         return row
     }
     const dynClass = (seat) => {
         let json_data = {};
         let lady = "";
+        console.log('====================================');
+        console.log("First Condation:",seat.length === '1');
+        console.log(seat.name);
+        console.log(seat.available);
+        console.log(seat.ladiesSeat);
+        console.log(seat.width);
+        console.log('====================================');
         if (seat.length === '1') {
             if (seat.available === 'false') {
                 if (seat.width === '2') {
                     lady = seat.ladiesSeat === 'false' ? "_HSH_2_ IlqM" : "_HSH_2_ pXg8";
-                    json_data = { css_1: "_3AF7 tt-default hover-tt-top", css_2: `${lady}`, span_1: "_no_hd_", span_2: "_no_hd_", span_3: "_19QY _1Zjt" }
+                    json_data = {css_1: "_3AF7 tt-default hover-tt-top", css_2: `${lady}`,span_1: "_no_hd_",span_2: "_no_hd_",span_3: "_19QY _1Zjt"}
                 } else {
-                    lady = seat.ladiesSeat === 'false' ? "_HSH_2_ IlqM" : "_HSH_2_ pXg8";
-                    json_data = { css_1: "_3AF7 tt-default hover-tt-top", css_2: `${lady}`, span_1: "_2CpW _1Zjt", span_2: "U6x5 _1Zjt", span_3: "_19QY _1Zjt" }
+                    lady = seat.ladiesSeat === 'false' ? "_HSH_ IlqM" : "_HSH_ pXg8";
+                    json_data = {css_1:"_3AF7 tt-default hover-tt-top" ,css_2: `${lady}`,span_1: "_2CpW _1Zjt #{ry_excl_class}",span_2: "U6x5 _1Zjt",span_3: "_19QY _1Zjt"}
                 }
             } else {
                 if (seat.width === '2') {
                     lady = seat.ladiesSeat === 'false' ? "_HSH_2_" : "_HSH_2_ _39aI";
-                    json_data = { css_1: "_3AF7 tt-default hover-tt-top", css_2: `${lady}`, span_1: "_no_hd_", span_2: "_no_hd_", span_3: "_19QY _1Zjt" }
+                    json_data = {css_1:"_3AF7 tt-default hover-tt-top ", css_2: `${lady}`,span_1: "_no_hd_",span_2: "_no_hd_",span_3: "_19QY _1Zjt"}
                 } else {
                     lady = seat.ladiesSeat === 'false' ? "_HSH_" : "_HSH_ _39aI";
-                    json_data = { css_1: "_3AF7 tt-default hover-tt-top", css_2: `${lady}`, span_1: "_2CpW _1Zjt", span_2: "U6x5 _1Zjt", span_3: "_19QY _1Zjt" }
+                    json_data = {css_1:"_3AF7 tt-default hover-tt-top ",css_2: `${lady}`,span_1: "_2CpW _1Zjt",span_2: "U6x5 _1Zjt",span_3: "_19QY _1Zjt"}
                 }
             }
         } else {
             if (seat.available === 'false') {
                 lady = seat.ladiesSeat === 'false' ? "_HSH_sl IlqM" : "_HSH_sl pXg8";
-                json_data = { css_1: "_3AF7 tt-default hover-tt-top", css_2: `${lady}`, span_1: "_no_hd_", span_2: "_no_hd_", span_3: "_19QY _1Zjt" }
-
+                json_data = {css_1:"_3AF7 tt-default hover-tt-top", css_2: `${lady}`,span_1: "_no_hd_",span_2: "_no_hd_",span_3: "_19QY _1Zjt"}
             } else {
-                lady = seat.ladiesSeat === 'false' ? "_HSH_sl" : "_HSH_sl _39aI";
-                json_data = { css_1: "_3AF7 tt-default hover-tt-top", css_2: `${lady}`, span_1: "_2CpW _1Zjt", span_2: "U6x5 _1Zjt", span_3: "_19QY _1Zjt" }
-
+                lady = seat.ladiesSeat === 'false' ? "_HSH_sl" : "_HSH_sl _39aI";                
+                json_data = {css_1:"_3AF7 tt-default hover-tt-top ", css_2: `${lady}`,span_1: "_no_hd_",span_2: "_no_hd_",span_3: "_19QY _1Zjt"}
             }
         }
         let newObj = { ...seat, ...json_data }
