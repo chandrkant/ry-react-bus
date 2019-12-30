@@ -54,16 +54,15 @@ const SeatLayout = forwardRef((props, ref) => {
         unAr.map(r => {
             let cRow = array.filter(itm => itm.row === r)
             let unArCl = uniqueArrayByKey(cRow, 'column')
-            row.r = []
+            row[r] = []
             if (cRow.length === 0) {
-                row.r.push({ row: r, column: "-1", zIndex: "0", length: "1", css_1: "_NO_SEAT_", css_2: "_HSH_", span_1: "_2CpW _1Zjt", span_2: "U6x5 _1Zjt", hover_text: "" })
+                row[r].push({ row: r, column: "-1", zIndex: "0", length: "1", css_1: "_NO_SEAT_", css_2: "_HSH_", span_1: "_2CpW _1Zjt", span_2: "U6x5 _1Zjt", hover_text: "" })
             } else {
                 let el = 1;
                 let minCl = getMinbyKey(cRow, 'column');
                 let maxCl = getMaxbyKey(cRow, 'column');
                 let columArray = [...Array(parseInt(minCl) + 1)].map((_, i) => i === 0 ? `${el * (-1)}` : `${-1}`)
                 let newColArray = [...columArray, ...unArCl].sort();
-                // let lastColumn = newColArray.pop();
                 let isLgSeat = array.filter(seat => seat.length === "2")
                 let altrArray = [];
                 for (var i = parseInt(minCl); i <= parseInt(maxCl); i++) {
@@ -77,13 +76,13 @@ const SeatLayout = forwardRef((props, ref) => {
                 newColArray.map(col => {
                     if(col<0){
                         if(col>-2){
-                            row.r.push({column: "-1", zIndex: "0", length: "1",css_1: "_NO_SEAT_",css_2: "_HSH_",span_1: "_2CpW _1Zjt",span_2: "U6x5 _1Zjt",hover_text: ""})
+                            row[r].push({column: "-1", zIndex: "0", length: "1",css_1: "_NO_SEAT_",css_2: "_HSH_",span_1: "_2CpW _1Zjt",span_2: "U6x5 _1Zjt",hover_text: ""})
                         }else{
-                            row.r.push({column: "-1", zIndex: "0", length: "1",css_1: "_NO_SEAT_",css_2: "_HSH_sl", span_1: "_no_hd_", span_2: "_no_hd_", hover_text: ""})
+                            row[r].push({column: "-1", zIndex: "0", length: "1",css_1: "_NO_SEAT_",css_2: "_HSH_sl", span_1: "_no_hd_", span_2: "_no_hd_", hover_text: ""})
                         }
                     }else{
                         let cCSdata = cRow.filter(item => item.column===col)[0]
-                        row.r.push(dynClass(cCSdata))
+                        row[r].push(dynClass(cCSdata))
                     }
 
                 })
@@ -91,8 +90,10 @@ const SeatLayout = forwardRef((props, ref) => {
 
         })
 
-
-        return array
+        console.log('====================================');
+        console.log(row);
+        console.log('====================================');
+        return row
     }
     const dynClass = (seat) => {
         let json_data = {};
