@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import $ from 'jquery';
+import ArrayUtility from './Utility/ArrayUtility'
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
