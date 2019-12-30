@@ -50,8 +50,8 @@ const SeatLayout = forwardRef((props, ref) => {
         //     }
         // })
         // setLowerrows(fillArrayByMis)
-        unAr = unAr.sort()
-        unAr.map(r => {
+        fillArrayByMis = fillArrayByMis.sort()
+        fillArrayByMis.map(r => {
             let cRow = array.filter(itm => itm.row === r)
             let unArCl = uniqueArrayByKey(cRow, 'column')
             row[r] = []
@@ -89,18 +89,14 @@ const SeatLayout = forwardRef((props, ref) => {
             }
 
         })
+        console.log('====================================');
+        console.log(row);
+        console.log('====================================');
         return row
     }
     const dynClass = (seat) => {
         let json_data = {};
         let lady = "";
-        console.log('====================================');
-        console.log("First Condation:",seat.length === '1');
-        console.log(seat.name);
-        console.log(seat.available);
-        console.log(seat.ladiesSeat);
-        console.log(seat.width);
-        console.log('====================================');
         if (seat.length === '1') {
             if (seat.available === 'false') {
                 if (seat.width === '2') {
